@@ -1,0 +1,101 @@
+import java.util.Scanner;
+public class mid_Term_task {
+    public static void main(String[] args) {
+        //make an object of each clas circle,square and cube
+        Circle circle1 = new Circle();
+        square square1 = new square();
+        sphere sphere1 = new sphere();
+        cube cube1 = new cube();
+                                     // The circle functions
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the radius of the circle");
+        circle1.setDimensions(input.nextDouble());
+        System.out.println("The circle area is "+circle1.Area()); 
+
+                                    // The square functions
+        System.out.println("Enter the length of the square");
+        square1.setDimensions(input.nextDouble());
+        System.out.println("the square area is "+ square1.Area());
+
+                                    //The sphere functions
+        System.out.println("Enter the radius of the sphere");
+        sphere1.setDimensions(input.nextDouble());
+        System.out.println("The sphere area is "+ sphere1.Area()+"And the volume is "+sphere1.volume());
+
+                                    //The cube functions
+        System.out.println("Enter the length of cube ");
+       cube1.setDimensions(input.nextDouble());
+        System.out.println("The cube area is "+ cube1.Area()+"and the volume is "+cube1.volume());
+    }
+}
+ interface shapes
+{
+     double pi=3.14;
+    double  Area();
+}
+interface twoDimensionalShape extends shapes
+{
+    void setDimensions(double dimension);
+}
+interface threeDimensionalShape extends shapes
+{
+    void setDimensions(double dimension);
+    double volume();
+}
+class Circle implements twoDimensionalShape
+{
+   private double radius;
+    @Override
+    public void setDimensions(double radius) {
+        this.radius=radius;
+    }
+    @Override
+    public double Area() {
+
+        return 2*pi*radius;                 //To return circle area
+    }
+}
+class square implements twoDimensionalShape
+{
+   private double length;
+    @Override
+    public void setDimensions(double length) {
+        this.length=length;
+    }
+    @Override
+    public double Area() {
+        return length*length;               //To return square area
+    }
+}
+class sphere implements threeDimensionalShape
+{
+   private double radius;
+    @Override
+    public void setDimensions(double radius) {
+        this.radius=radius;
+    }
+    @Override
+    public double Area() {
+        return  4*pi*radius*radius;          //To return sphere area
+    }
+    @Override
+    public double volume() {
+        return (4*pi*radius*radius*radius)/3;//To return sphere volume
+    }
+}
+class cube implements threeDimensionalShape
+{
+   private double length;
+    @Override
+    public void setDimensions(double length) {
+        this.length=length;
+    }
+    @Override
+    public double Area() {
+        return 6*length*length;            //To return the cube length
+    }
+    @Override
+    public double volume() {
+        return length*length*length;       //To return the cube volume
+    }
+}
